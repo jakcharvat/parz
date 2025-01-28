@@ -163,7 +163,7 @@ pub fn as_list(parser: Parser(a)) {
 
 pub fn separator1(parser: Parser(a), sep: Parser(_)) {
   choice([
-    sequence([as_list(parser), many(right(sep, parser))]) |> map(list.concat),
+    sequence([as_list(parser), many(right(sep, parser))]) |> map(list.flatten),
     as_list(parser),
   ])
 }
